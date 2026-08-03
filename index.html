@@ -86,7 +86,6 @@ fbq('init','SEU_PIXEL_ID');fbq('track','PageView');</script>
   --text-2:#BFC5CC;
   --muted:#868D95;
 
-  /* "gold" mantido como nome de variável, agora em prata */
   --gold:#C8CDD3;
   --gold-2:#FFFFFF;
   --gold-soft:rgba(255,255,255,.07);
@@ -253,22 +252,38 @@ ul{list-style:none}
   display:grid;gap:clamp(32px,5vw,56px);align-items:center;
   grid-template-columns:1fr;
 }
-@media(min-width:980px){.hero__grid{grid-template-columns:1.02fr .98fr}}
-
-.hero__title{margin:6px 0 24px}
-.hero__title .line{display:block;font-size:clamp(3rem,11.5vw,7.2rem)}
-/* Subtítulo abaixo do nome do livro, no mesmo bloco do título */
-.hero__title-sub{
-  display:block;margin-top:14px;
-  font-family:var(--font-display);
-  font-weight:500;
-  text-transform:none;
-  letter-spacing:.01em;
-  line-height:1.3;
-  font-size:clamp(1.05rem,2.1vw,1.55rem);
-  color:var(--text-2);
-  max-width:22ch;
+/* A coluna da imagem recebe mais espaço para o hook aparecer maior */
+@media(min-width:980px){
+  .hero__grid{grid-template-columns:1fr 1.14fr;gap:clamp(28px,3.6vw,48px)}
 }
+
+.hero__title{margin:6px 0 26px}
+/* Tamanho limitado para a palavra nunca ultrapassar a coluna */
+.hero__title .line{
+  display:block;
+  font-size:clamp(2.6rem,13.5vw,5.2rem);
+  line-height:.9;
+}
+@media(min-width:980px){
+  .hero__title .line{font-size:clamp(3.2rem,5.4vw,4.9rem)}
+}
+
+/* Subtítulo com mais presença, acompanhando o peso do título */
+.hero__title-sub{
+  display:block;margin-top:18px;
+  font-family:var(--font-display);
+  font-weight:600;
+  text-transform:none;
+  letter-spacing:-.012em;
+  line-height:1.22;
+  font-size:clamp(1.45rem,5.4vw,2.2rem);
+  color:var(--text);
+  max-width:20ch;
+}
+@media(min-width:980px){
+  .hero__title-sub{font-size:clamp(1.6rem,2.5vw,2.2rem)}
+}
+
 .hero__sub{margin-bottom:34px}
 .hero__actions{display:flex;flex-wrap:wrap;gap:14px;align-items:center}
 
@@ -282,6 +297,10 @@ ul{list-style:none}
 /* Imagem de abertura (hook.png).
    Sem recorte: a moldura acompanha a proporção original do arquivo. */
 .hero__media{position:relative}
+@media(min-width:980px){
+  /* Deixa a imagem ultrapassar levemente a coluna, ganhando presença */
+  .hero__media{margin-right:calc(var(--pad) * -0.6)}
+}
 .hero__img-wrap{
   position:relative;border-radius:var(--radius-lg);overflow:hidden;
   border:1px solid var(--line);box-shadow:var(--shadow-lg);
@@ -289,7 +308,7 @@ ul{list-style:none}
 }
 .hero__img-wrap img{width:100%;height:auto;display:block}
 .hero__ring{
-  position:absolute;right:-12%;top:-10%;width:56%;aspect-ratio:1;border-radius:50%;
+  position:absolute;right:-10%;top:-9%;width:52%;aspect-ratio:1;border-radius:50%;
   border:1px solid rgba(255,255,255,.28);pointer-events:none;z-index:2;
 }
 .hero__caption{
@@ -432,7 +451,6 @@ ul{list-style:none}
 .deliver__grid{display:grid;gap:clamp(32px,5vw,56px);grid-template-columns:1fr;align-items:center}
 @media(min-width:980px){.deliver__grid{grid-template-columns:.95fr 1.05fr}}
 
-/* Moldura da capa: respeita a proporção original do arquivo */
 .mockup{
   border-radius:var(--radius-lg);
   background:
@@ -444,7 +462,7 @@ ul{list-style:none}
   box-shadow:var(--shadow-lg);position:relative;
 }
 .mockup img{
-  width:100%;max-width:420px;height:auto;
+  width:100%;max-width:440px;height:auto;
   border-radius:8px;
   filter:drop-shadow(0 30px 60px rgba(0,0,0,.7));
 }
@@ -627,7 +645,6 @@ ul{list-style:none}
 .reveal[data-d="3"]{transition-delay:.24s}
 .reveal[data-d="4"]{transition-delay:.32s}
 
-/* Variações de entrada */
 .reveal[data-anim="left"]{transform:translateX(-34px)}
 .reveal[data-anim="right"]{transform:translateX(34px)}
 .reveal[data-anim="zoom"]{transform:scale(.94)}
@@ -637,8 +654,6 @@ ul{list-style:none}
 /* =====================================================================
    19. MOVIMENTO E MICROINTERAÇÕES
    ===================================================================== */
-
-/* Barra de progresso da leitura */
 .progress-bar{
   position:fixed;top:0;left:0;height:2px;z-index:120;width:0%;
   background:linear-gradient(90deg,var(--gold),var(--gold-2));
@@ -646,7 +661,6 @@ ul{list-style:none}
   transition:width .12s linear;
 }
 
-/* Respiração dos glows de fundo */
 @keyframes breathe{
   0%,100%{transform:translate3d(0,0,0) scale(1);opacity:.45}
   50%    {transform:translate3d(0,-26px,0) scale(1.12);opacity:.62}
@@ -654,7 +668,6 @@ ul{list-style:none}
 .glow{animation:breathe 12s ease-in-out infinite}
 .glow--blue{animation-duration:16s;animation-delay:-4s}
 
-/* Flutuação suave */
 @keyframes float{
   0%,100%{transform:translateY(0)}
   50%    {transform:translateY(-10px)}
@@ -662,7 +675,6 @@ ul{list-style:none}
 .mockup img{animation:float 7s ease-in-out infinite}
 .bonus-featured img{animation:float 9s ease-in-out infinite}
 
-/* Anel do hero girando lentamente */
 @keyframes slow-spin{to{transform:rotate(360deg)}}
 .hero__ring{animation:slow-spin 60s linear infinite}
 .hero__ring::before{
@@ -670,7 +682,6 @@ ul{list-style:none}
   border-radius:50%;background:var(--gold-2);box-shadow:0 0 16px 3px rgba(255,255,255,.7);
 }
 
-/* Brilho percorrendo o texto metálico */
 @keyframes shine{
   0%{background-position:0% 50%}
   100%{background-position:200% 50%}
@@ -682,7 +693,6 @@ ul{list-style:none}
   animation:shine 7s linear infinite;
 }
 
-/* Reflexo deslizante nos botões claros */
 .btn--gold{position:relative;overflow:hidden;isolation:isolate}
 .btn--gold::after{
   content:"";position:absolute;inset:0;z-index:-1;
@@ -696,7 +706,6 @@ ul{list-style:none}
 }
 .btn--gold:active{transform:translateY(-1px) scale(.985)}
 
-/* Pulso de atenção no CTA principal */
 @keyframes pulse-ring{
   0%  {box-shadow:0 10px 30px rgba(0,0,0,.5), 0 0 0 0 rgba(255,255,255,.3)}
   70% {box-shadow:0 10px 30px rgba(0,0,0,.5), 0 0 0 16px rgba(255,255,255,0)}
@@ -705,16 +714,13 @@ ul{list-style:none}
 .btn--pulse{animation:pulse-ring 3.4s ease-out infinite}
 .btn--pulse:hover{animation-play-state:paused}
 
-/* Parallax leve (aplicado só a molduras que podem deslocar sem cortar) */
 .parallax{will-change:transform;transition:transform .18s cubic-bezier(.2,.8,.2,1)}
 
-/* Tilt 3D nos cards */
 .card,.module,.bonus-card,.deliver-item,.check{
   transform-style:preserve-3d;
   transition:transform .35s cubic-bezier(.2,.8,.2,1), border-color .35s, box-shadow .35s, background .35s;
 }
 
-/* Brilho que segue o cursor dentro do card */
 .card,.module,.bonus-card{position:relative}
 .card::after,.module::after,.bonus-card::after{
   content:"";position:absolute;inset:0;pointer-events:none;opacity:0;transition:opacity .3s;
@@ -722,7 +728,6 @@ ul{list-style:none}
 }
 .card:hover::after,.module:hover::after,.bonus-card:hover::after{opacity:1}
 
-/* Número do módulo ganha vida no hover */
 .module__num{transition:color .35s, -webkit-text-stroke-color .35s, transform .35s}
 .module:hover .module__num{
   color:rgba(255,255,255,.16);
@@ -730,12 +735,10 @@ ul{list-style:none}
   transform:translateY(-3px) scale(1.06);
 }
 
-/* Ícones que reagem ao passar o mouse */
 .card__icon,.deliver-item__ico,.bonus-card__ico{transition:transform .4s cubic-bezier(.2,.8,.2,1), background .3s, color .3s}
 .card:hover .card__icon,.bonus-card:hover .bonus-card__ico{transform:translateY(-4px) rotate(-6deg) scale(1.08);color:#FFFFFF}
 .deliver-item:hover .deliver-item__ico{transform:rotate(6deg) scale(1.08)}
 
-/* Marcadores de dor com traço animado */
 .pain{position:relative;overflow:hidden}
 .pain::before{
   content:"";position:absolute;left:0;top:0;bottom:0;width:2px;
@@ -744,7 +747,6 @@ ul{list-style:none}
 }
 .pain:hover::before{transform:scaleY(1)}
 
-/* Sublinhado animado nos links de navegação */
 .nav a{position:relative}
 .nav a::after{
   content:"";position:absolute;left:0;right:0;bottom:-6px;height:1px;background:var(--gold);
@@ -752,7 +754,6 @@ ul{list-style:none}
 }
 .nav a:hover::after{transform:scaleX(1);transform-origin:left}
 
-/* Abertura suave das respostas do FAQ */
 .faq details p{animation:fade-down .35s ease both}
 @keyframes fade-down{
   from{opacity:0;transform:translateY(-8px)}
@@ -761,14 +762,12 @@ ul{list-style:none}
 .faq summary{transition:color .25s}
 .faq summary:hover{color:var(--gold-2)}
 
-/* Selo de garantia com respiração */
 @keyframes seal-glow{
   0%,100%{box-shadow:0 0 0 0 rgba(255,255,255,.0)}
   50%    {box-shadow:0 0 46px 6px rgba(255,255,255,.18)}
 }
 .seal{animation:seal-glow 5s ease-in-out infinite}
 
-/* Cursor luminoso discreto (desktop) */
 .cursor-glow{
   position:fixed;top:0;left:0;width:380px;height:380px;border-radius:50%;
   background:radial-gradient(circle, rgba(255,255,255,.055), transparent 62%);
@@ -779,7 +778,6 @@ ul{list-style:none}
 @media(hover:hover) and (pointer:fine){ .cursor-glow.is-on{opacity:1} }
 @media(hover:none){ .cursor-glow{display:none} }
 
-/* Indicação de rolagem no hero */
 .scroll-hint{
   display:none;margin-top:38px;align-items:center;gap:12px;
   font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);
@@ -810,10 +808,7 @@ ul{list-style:none}
 
 <a class="skip-link" href="#conteudo">Ir para o conteúdo principal</a>
 
-<!-- Barra de progresso da leitura -->
 <div class="progress-bar" id="progressBar" role="presentation"></div>
-
-<!-- Luz que acompanha o cursor (desktop) -->
 <div class="cursor-glow" id="cursorGlow" aria-hidden="true"></div>
 
 <!-- ===================== HEADER ===================== -->
@@ -1304,13 +1299,10 @@ ul{list-style:none}
 </div>
 
 <script>
-/* =====================================================================
-   Ano dinâmico
-   ===================================================================== */
 document.getElementById('ano').textContent = new Date().getFullYear();
 
 /* =====================================================================
-   Header com fundo ao rolar
+   Header, barra de progresso e CTA fixo
    ===================================================================== */
 var header   = document.getElementById('header');
 var sticky   = document.getElementById('stickyCta');
@@ -1326,7 +1318,6 @@ function onScroll(){
     header.classList.toggle('is-stuck', y > 20);
     sticky.classList.toggle('is-visible', y > 640);
 
-    // Barra de progresso da leitura
     var total = document.documentElement.scrollHeight - window.innerHeight;
     progress.style.width = (total > 0 ? (y / total) * 100 : 0) + '%';
 
@@ -1341,7 +1332,6 @@ onScroll();
 
 /* =====================================================================
    Parallax suave (elementos com a classe .parallax)
-   Ajuste a intensidade pelo atributo data-speed.
    ===================================================================== */
 var camadas = document.querySelectorAll('.parallax');
 function aplicarParallax(){
@@ -1356,7 +1346,7 @@ function aplicarParallax(){
 }
 
 /* =====================================================================
-   Animações de entrada (IntersectionObserver)
+   Animações de entrada
    ===================================================================== */
 var items = document.querySelectorAll('.reveal');
 if ('IntersectionObserver' in window){
@@ -1371,7 +1361,7 @@ if ('IntersectionObserver' in window){
 }
 
 /* =====================================================================
-   Contadores animados na faixa de números
+   Contadores animados
    ===================================================================== */
 var contadores = document.querySelectorAll('[data-count]');
 function animarContador(el){
@@ -1463,7 +1453,6 @@ perguntas.forEach(function(d){
 
 /* =====================================================================
    Rastreamento de cliques nos CTAs
-   Pronto para Meta Pixel, GA4 e GTM. Basta descomentar.
    ===================================================================== */
 document.querySelectorAll('[data-cta]').forEach(function(btn){
   btn.addEventListener('click', function(){
