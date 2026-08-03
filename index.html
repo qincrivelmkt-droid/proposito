@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Propósito: O Que Significa e Como Descobrir o Seu à Luz da Bíblia</title>
-<meta name="description" content="Descubra o propósito que Deus preparou para sua vida. E-book e curso digital com 10 módulos, exercícios práticos e bônus exclusivos para viver com direção, significado e paz.">
+<meta name="description" content="Descubra o propósito que Deus preparou para sua vida. E-book com 10 módulos, exercícios práticos e bônus exclusivos para viver com direção, significado e paz.">
 <meta name="theme-color" content="#0D1013">
 <link rel="canonical" href="https://SEUDOMINIO.com.br/">
 
@@ -13,25 +13,25 @@
 <meta property="og:locale" content="pt_BR">
 <meta property="og:title" content="Propósito: O Que Significa e Como Descobrir o Seu à Luz da Bíblia">
 <meta property="og:description" content="Uma jornada para compreender o chamado de Deus e viver com significado.">
-<meta property="og:image" content="assets/og-cover.jpg">
+<meta property="og:image" content="https://raw.githubusercontent.com/qincrivelmkt-droid/proposito/main/capa.png">
 <meta property="og:url" content="https://SEUDOMINIO.com.br/">
 <meta name="twitter:card" content="summary_large_image">
 
 <!--
 =====================================================================
-  ÍNDICE DE IMAGENS (substitua pelos links do seu GitHub / CDN)
-  Basta trocar o src de cada <img>. Todas usam loading="lazy"
-  (exceto a do hero) e possuem alt descritivo para acessibilidade.
+  ÍNDICE DE IMAGENS
+  Os caminhos apontam para os arquivos do repositório em URL absoluta,
+  assim as imagens aparecem tanto abrindo o arquivo direto no navegador
+  quanto publicado no GitHub Pages ou em qualquer hospedagem.
 
-  assets/hero.jpg          -> Bíblia aberta com luz suave / nascer do sol
-  assets/problema.jpg      -> Pessoa em silêncio olhando o horizonte
-  assets/paraquem.jpg      -> Pessoas caminhando em uma estrada ao amanhecer
-  assets/curso-mockup.png  -> Mockup do e-book (tablet + capa)
-  assets/bonus-1.png       -> Capa do Diário de Oração
-  assets/bonus-2.png       -> Capa dos 30 Dias de Devocionais
-  assets/bonus-3.png       -> Grupo de WhatsApp / comunidade
-  assets/cta-final.jpg     -> Montanhas ao nascer do sol / caminho
-  assets/og-cover.jpg      -> Imagem de compartilhamento social 1200x630
+  BASE: https://raw.githubusercontent.com/qincrivelmkt-droid/proposito/main/
+
+  hook.png           -> Hero, logo no começo da página
+  capa.png           -> Seção "O que você recebe" (e imagem social)
+  ebook-e-bonus.png  -> Seção "Bônus", destaque do pacote completo
+
+  Para trocar por outra imagem, suba o arquivo no repositório e mude
+  apenas o nome no final da URL. Qualquer proporção se ajusta sem cortar.
 =====================================================================
 -->
 
@@ -59,16 +59,13 @@ fbq('init','SEU_PIXEL_ID');fbq('track','PageView');</script>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Course",
+  "@type": "Book",
   "name": "Propósito: O Que Significa e Como Descobrir o Seu à Luz da Bíblia",
-  "description": "Curso digital e e-book com 10 módulos para descobrir o propósito de Deus para sua vida.",
+  "description": "E-book com 10 módulos e exercícios práticos para descobrir o propósito de Deus para sua vida.",
   "inLanguage": "pt-BR",
-  "provider": { "@type": "Organization", "name": "SEU NOME / MARCA" },
-  "hasCourseInstance": {
-    "@type": "CourseInstance",
-    "courseMode": "online",
-    "courseWorkload": "PT6H"
-  }
+  "bookFormat": "https://schema.org/EBook",
+  "image": "https://raw.githubusercontent.com/qincrivelmkt-droid/proposito/main/capa.png",
+  "author": { "@type": "Person", "name": "SEU NOME" }
 }
 </script>
 
@@ -132,7 +129,7 @@ ul{list-style:none}
 
 .skip-link{
   position:absolute;left:-9999px;top:0;z-index:999;
-  background:var(--gold);color:#0A0C0F;padding:12px 20px;font-weight:700;border-radius:0 0 8px 0;
+  background:var(--gold);color:#0D1013;padding:12px 20px;font-weight:700;border-radius:0 0 8px 0;
 }
 .skip-link:focus{left:0}
 
@@ -256,7 +253,7 @@ ul{list-style:none}
   display:grid;gap:clamp(32px,5vw,56px);align-items:center;
   grid-template-columns:1fr;
 }
-@media(min-width:980px){.hero__grid{grid-template-columns:1.05fr .95fr}}
+@media(min-width:980px){.hero__grid{grid-template-columns:1.02fr .98fr}}
 
 .hero__title{margin:6px 0 24px}
 .hero__title .line{display:block;font-size:clamp(3rem,11.5vw,7.2rem)}
@@ -282,28 +279,26 @@ ul{list-style:none}
 .hero__trust span{display:inline-flex;align-items:center;gap:8px}
 .hero__trust svg{color:var(--gold)}
 
+/* Imagem de abertura (hook.png).
+   Sem recorte: a moldura acompanha a proporção original do arquivo. */
 .hero__media{position:relative}
 .hero__img-wrap{
   position:relative;border-radius:var(--radius-lg);overflow:hidden;
   border:1px solid var(--line);box-shadow:var(--shadow-lg);
-  aspect-ratio:4/5;background:var(--surface);
+  background:var(--surface);
 }
-.hero__img-wrap img{width:100%;height:100%;object-fit:cover}
-.hero__img-wrap::after{
-  content:"";position:absolute;inset:0;
-  background:linear-gradient(180deg,transparent 45%,rgba(13,16,19,.78) 100%);
-}
+.hero__img-wrap img{width:100%;height:auto;display:block}
 .hero__ring{
-  position:absolute;right:-14%;top:-8%;width:60%;aspect-ratio:1;border-radius:50%;
-  border:1px solid rgba(255,255,255,.28);pointer-events:none;
+  position:absolute;right:-12%;top:-10%;width:56%;aspect-ratio:1;border-radius:50%;
+  border:1px solid rgba(255,255,255,.28);pointer-events:none;z-index:2;
 }
-.hero__badge{
-  position:absolute;left:20px;bottom:20px;z-index:2;
-  background:rgba(13,16,19,.7);backdrop-filter:blur(10px);
-  border:1px solid var(--line-strong);border-radius:14px;padding:14px 18px;
+.hero__caption{
+  margin-top:16px;display:flex;flex-wrap:wrap;gap:10px;justify-content:center;
+  font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);
 }
-.hero__badge strong{display:block;font-family:var(--font-serif);font-size:1.25rem;color:var(--gold-2);font-style:italic}
-.hero__badge span{font-size:.74rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+.hero__caption span{
+  border:1px solid var(--line);border-radius:999px;padding:8px 16px;background:var(--surface);
+}
 
 /* =====================================================================
    7. STATS STRIP
@@ -328,22 +323,22 @@ ul{list-style:none}
    8. PROBLEMA
    ===================================================================== */
 .problem{background:var(--bg-2);position:relative;overflow:hidden}
-.problem__grid{display:grid;gap:clamp(32px,5vw,60px);grid-template-columns:1fr;align-items:center}
-@media(min-width:980px){.problem__grid{grid-template-columns:.9fr 1.1fr}}
-.problem__img{
-  border-radius:var(--radius-lg);overflow:hidden;border:1px solid var(--line);
-  aspect-ratio:3/4;background:var(--surface);box-shadow:var(--shadow-lg);
+.problem__head{max-width:760px}
+.problem__bottom{
+  display:grid;gap:clamp(28px,4vw,48px);grid-template-columns:1fr;
+  align-items:center;margin-top:38px;
 }
-.problem__img img{width:100%;height:100%;object-fit:cover}
+@media(min-width:900px){.problem__bottom{grid-template-columns:1fr 1fr}}
 
-.pain-list{display:grid;gap:12px;margin:28px 0 34px}
+.pain-list{display:grid;gap:12px;margin:32px 0 0;grid-template-columns:1fr}
+@media(min-width:760px){.pain-list{grid-template-columns:repeat(2,1fr)}}
 .pain{
   display:flex;gap:14px;align-items:flex-start;
   background:var(--surface);border:1px solid var(--line);
   border-radius:var(--radius);padding:18px 20px;
   transition:transform .3s, border-color .3s, background .3s;
 }
-.pain:hover{transform:translateX(6px);border-color:rgba(255,255,255,.3);background:var(--surface-2)}
+.pain:hover{transform:translateY(-4px);border-color:rgba(255,255,255,.3);background:var(--surface-2)}
 .pain__dot{
   flex:0 0 auto;width:22px;height:22px;border-radius:50%;margin-top:2px;
   display:grid;place-items:center;background:rgba(255,255,255,.14);color:var(--gold-2);
@@ -369,6 +364,7 @@ ul{list-style:none}
 .cards{display:grid;gap:16px;grid-template-columns:1fr}
 @media(min-width:640px){.cards{grid-template-columns:repeat(2,1fr)}}
 @media(min-width:1000px){.cards--4{grid-template-columns:repeat(4,1fr)}}
+@media(min-width:900px){.cards--3{grid-template-columns:repeat(3,1fr)}}
 .card{
   background:linear-gradient(180deg,var(--surface),rgba(20,24,30,.55));
   border:1px solid var(--line);border-radius:var(--radius);
@@ -393,20 +389,20 @@ ul{list-style:none}
    10. PARA QUEM É
    ===================================================================== */
 .audience{background:var(--bg-2)}
-.audience__grid{display:grid;gap:clamp(32px,5vw,56px);grid-template-columns:1fr;align-items:center}
-@media(min-width:980px){.audience__grid{grid-template-columns:1.05fr .95fr}}
-.audience__img{
-  border-radius:var(--radius-lg);overflow:hidden;border:1px solid var(--line);
-  aspect-ratio:16/12;background:var(--surface);box-shadow:var(--shadow-lg);
+.check-list{display:grid;gap:14px;margin-top:30px;grid-template-columns:1fr}
+@media(min-width:760px){.check-list{grid-template-columns:repeat(2,1fr);gap:16px 34px}}
+.check{
+  display:flex;gap:14px;align-items:flex-start;
+  border:1px solid var(--line);border-radius:var(--radius);
+  background:var(--surface);padding:18px 20px;
+  transition:transform .3s, border-color .3s;
 }
-.audience__img img{width:100%;height:100%;object-fit:cover}
-.check-list{display:grid;gap:14px;margin-top:28px}
-.check{display:flex;gap:14px;align-items:flex-start}
+.check:hover{transform:translateY(-4px);border-color:rgba(255,255,255,.28)}
 .check__ico{
   flex:0 0 auto;width:26px;height:26px;border-radius:50%;display:grid;place-items:center;
-  background:linear-gradient(135deg,#FFFFFF,#C8CDD3);color:#0D1013;
+  background:linear-gradient(135deg,#FFFFFF,#C8CDD3);color:#0D1013;margin-top:2px;
 }
-.check span{color:var(--text-2)}
+.check span{color:var(--text-2);font-size:.95rem}
 
 /* =====================================================================
    11. MÓDULOS
@@ -435,13 +431,23 @@ ul{list-style:none}
 .deliver{background:var(--bg-2)}
 .deliver__grid{display:grid;gap:clamp(32px,5vw,56px);grid-template-columns:1fr;align-items:center}
 @media(min-width:980px){.deliver__grid{grid-template-columns:.95fr 1.05fr}}
+
+/* Moldura da capa: respeita a proporção original do arquivo */
 .mockup{
-  border-radius:var(--radius-lg);overflow:hidden;border:1px solid var(--line);
-  background:linear-gradient(180deg,var(--surface),var(--bg));
-  aspect-ratio:1/1;display:grid;place-items:center;padding:8%;box-shadow:var(--shadow-lg);
-  position:relative;
+  border-radius:var(--radius-lg);
+  background:
+    radial-gradient(520px 320px at 50% 10%, rgba(255,255,255,.06), transparent 70%),
+    linear-gradient(180deg,var(--surface),var(--bg));
+  border:1px solid var(--line);
+  padding:clamp(24px,4vw,44px);
+  display:grid;place-items:center;
+  box-shadow:var(--shadow-lg);position:relative;
 }
-.mockup img{width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 30px 60px rgba(0,0,0,.6))}
+.mockup img{
+  width:100%;max-width:420px;height:auto;
+  border-radius:8px;
+  filter:drop-shadow(0 30px 60px rgba(0,0,0,.7));
+}
 
 .deliver-list{display:grid;gap:14px;margin-top:26px}
 .deliver-item{
@@ -458,23 +464,45 @@ ul{list-style:none}
 .deliver-item h4{font-size:.98rem;font-weight:700}
 .deliver-item p{font-size:.85rem;color:var(--muted)}
 
+/* Imagem do pacote completo na seção de bônus */
+.bonus-featured{
+  border:1px solid var(--line);border-radius:var(--radius-lg);
+  background:
+    radial-gradient(700px 380px at 50% 0%, rgba(255,255,255,.07), transparent 70%),
+    linear-gradient(180deg,var(--surface),var(--bg));
+  padding:clamp(24px,4vw,52px);
+  box-shadow:var(--shadow-lg);
+  margin-bottom:clamp(28px,4vw,48px);
+  display:grid;place-items:center;
+}
+.bonus-featured img{
+  width:100%;max-width:900px;height:auto;
+  filter:drop-shadow(0 34px 70px rgba(0,0,0,.7));
+}
+.bonus-featured figcaption{
+  margin-top:22px;text-align:center;font-size:.78rem;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--muted);
+}
+
 .bonus-card{
-  border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;
+  border:1px solid var(--line);border-radius:var(--radius);
   background:var(--surface);transition:transform .35s, border-color .35s, box-shadow .35s;
-  display:flex;flex-direction:column;
+  display:flex;flex-direction:column;gap:10px;padding:28px 26px;
+  position:relative;overflow:hidden;
 }
 .bonus-card:hover{transform:translateY(-6px);border-color:rgba(255,255,255,.32);box-shadow:var(--shadow-lg)}
-.bonus-card__img{aspect-ratio:16/10;background:var(--surface-2);overflow:hidden}
-.bonus-card__img img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
-.bonus-card:hover .bonus-card__img img{transform:scale(1.05)}
-.bonus-card__body{padding:24px;flex:1;display:flex;flex-direction:column;gap:8px}
+.bonus-card__ico{
+  width:46px;height:46px;border-radius:12px;display:grid;place-items:center;
+  background:var(--gold-soft);border:1px solid rgba(255,255,255,.24);color:var(--gold-2);
+  margin-bottom:6px;position:relative;z-index:1;
+}
 .tag{
   align-self:flex-start;font-size:.66rem;letter-spacing:.18em;text-transform:uppercase;
   color:var(--gold-2);background:var(--gold-soft);border:1px solid rgba(255,255,255,.24);
-  padding:6px 12px;border-radius:999px;font-weight:700;
+  padding:6px 12px;border-radius:999px;font-weight:700;position:relative;z-index:1;
 }
-.bonus-card h3{font-size:1.05rem;font-weight:700;letter-spacing:-.01em}
-.bonus-card p{font-size:.9rem;color:var(--muted)}
+.bonus-card h3{font-size:1.05rem;font-weight:700;letter-spacing:-.01em;position:relative;z-index:1}
+.bonus-card p{font-size:.9rem;color:var(--muted);position:relative;z-index:1}
 
 /* =====================================================================
    13. GARANTIA
@@ -532,15 +560,13 @@ ul{list-style:none}
 .cta-box{
   position:relative;border-radius:var(--radius-lg);overflow:hidden;
   border:1px solid var(--line-strong);
-  min-height:clamp(380px,46vw,520px);
+  min-height:clamp(360px,42vw,480px);
   display:grid;align-items:center;
+  background:
+    radial-gradient(900px 460px at 12% 0%, rgba(255,255,255,.10), transparent 65%),
+    radial-gradient(700px 400px at 95% 100%, rgba(255,255,255,.06), transparent 65%),
+    linear-gradient(150deg,var(--surface) 0%,var(--bg) 70%);
   box-shadow:var(--shadow-lg);
-}
-.cta-box__bg{position:absolute;inset:0}
-.cta-box__bg img{width:100%;height:100%;object-fit:cover}
-.cta-box__bg::after{
-  content:"";position:absolute;inset:0;
-  background:linear-gradient(100deg,rgba(13,16,19,.94) 20%,rgba(13,16,19,.62) 65%,rgba(13,16,19,.35) 100%);
 }
 .cta-box__content{position:relative;z-index:2;padding:clamp(32px,6vw,72px);max-width:760px}
 .cta-box .title{margin-bottom:20px}
@@ -633,8 +659,8 @@ ul{list-style:none}
   0%,100%{transform:translateY(0)}
   50%    {transform:translateY(-10px)}
 }
-.hero__badge{animation:float 6s ease-in-out infinite}
 .mockup img{animation:float 7s ease-in-out infinite}
+.bonus-featured img{animation:float 9s ease-in-out infinite}
 
 /* Anel do hero girando lentamente */
 @keyframes slow-spin{to{transform:rotate(360deg)}}
@@ -644,7 +670,7 @@ ul{list-style:none}
   border-radius:50%;background:var(--gold-2);box-shadow:0 0 16px 3px rgba(255,255,255,.7);
 }
 
-/* Brilho percorrendo o texto dourado */
+/* Brilho percorrendo o texto metálico */
 @keyframes shine{
   0%{background-position:0% 50%}
   100%{background-position:200% 50%}
@@ -656,7 +682,7 @@ ul{list-style:none}
   animation:shine 7s linear infinite;
 }
 
-/* Reflexo deslizante nos botões dourados */
+/* Reflexo deslizante nos botões claros */
 .btn--gold{position:relative;overflow:hidden;isolation:isolate}
 .btn--gold::after{
   content:"";position:absolute;inset:0;z-index:-1;
@@ -679,20 +705,11 @@ ul{list-style:none}
 .btn--pulse{animation:pulse-ring 3.4s ease-out infinite}
 .btn--pulse:hover{animation-play-state:paused}
 
-/* Parallax leve nas imagens */
+/* Parallax leve (aplicado só a molduras que podem deslocar sem cortar) */
 .parallax{will-change:transform;transition:transform .18s cubic-bezier(.2,.8,.2,1)}
-.hero__img-wrap img,.problem__img img,.audience__img img,.cta-box__bg img{transform:scale(1.06)}
-
-/* Zoom lento contínuo na imagem do CTA final */
-@keyframes ken-burns{
-  0%  {transform:scale(1.06) translate(0,0)}
-  50% {transform:scale(1.16) translate(-1.5%,-1.5%)}
-  100%{transform:scale(1.06) translate(0,0)}
-}
-.cta-box__bg img{animation:ken-burns 24s ease-in-out infinite}
 
 /* Tilt 3D nos cards */
-.card,.module,.bonus-card,.deliver-item{
+.card,.module,.bonus-card,.deliver-item,.check{
   transform-style:preserve-3d;
   transition:transform .35s cubic-bezier(.2,.8,.2,1), border-color .35s, box-shadow .35s, background .35s;
 }
@@ -714,8 +731,8 @@ ul{list-style:none}
 }
 
 /* Ícones que reagem ao passar o mouse */
-.card__icon,.deliver-item__ico{transition:transform .4s cubic-bezier(.2,.8,.2,1), background .3s, color .3s}
-.card:hover .card__icon{transform:translateY(-4px) rotate(-6deg) scale(1.08);color:#FFFFFF}
+.card__icon,.deliver-item__ico,.bonus-card__ico{transition:transform .4s cubic-bezier(.2,.8,.2,1), background .3s, color .3s}
+.card:hover .card__icon,.bonus-card:hover .bonus-card__ico{transform:translateY(-4px) rotate(-6deg) scale(1.08);color:#FFFFFF}
 .deliver-item:hover .deliver-item__ico{transform:rotate(6deg) scale(1.08)}
 
 /* Marcadores de dor com traço animado */
@@ -736,9 +753,7 @@ ul{list-style:none}
 .nav a:hover::after{transform:scaleX(1);transform-origin:left}
 
 /* Abertura suave das respostas do FAQ */
-.faq details p{
-  animation:fade-down .35s ease both;
-}
+.faq details p{animation:fade-down .35s ease both}
 @keyframes fade-down{
   from{opacity:0;transform:translateY(-8px)}
   to  {opacity:1;transform:none}
@@ -764,7 +779,7 @@ ul{list-style:none}
 @media(hover:hover) and (pointer:fine){ .cursor-glow.is-on{opacity:1} }
 @media(hover:none){ .cursor-glow{display:none} }
 
-/* Seta indicando rolagem no hero */
+/* Indicação de rolagem no hero */
 .scroll-hint{
   display:none;margin-top:38px;align-items:center;gap:12px;
   font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);
@@ -836,7 +851,7 @@ ul{list-style:none}
     <div class="hero__grid">
 
       <div class="hero__copy reveal" data-anim="left">
-        <span class="eyebrow">E-book + Curso Digital</span>
+        <span class="eyebrow">E-book + Bônus</span>
 
         <h1 class="title title--display hero__title">
           <span class="line muted-display">Propósito</span>
@@ -876,15 +891,16 @@ ul{list-style:none}
         </div>
       </div>
 
+      <!-- IMAGEM DE ABERTURA: hook.png -->
       <div class="hero__media reveal" data-anim="zoom" data-d="2">
         <div class="hero__ring" aria-hidden="true"></div>
         <div class="hero__img-wrap">
-          <!-- IMAGEM: Bíblia aberta com luz suave / nascer do sol -->
-          <img class="parallax" data-speed="0.05" src="assets/hero.jpg" alt="Bíblia aberta sob a luz suave do nascer do sol" width="900" height="1125" fetchpriority="high">
-          <div class="hero__badge">
-            <strong>Uma jornada de fé</strong>
-            <span>10 módulos · Exercícios práticos</span>
-          </div>
+          <img src="https://raw.githubusercontent.com/qincrivelmkt-droid/proposito/main/hook.png" alt="Propósito: o que significa e como descobrir o seu à luz da Bíblia" fetchpriority="high">
+        </div>
+        <div class="hero__caption">
+          <span>10 módulos</span>
+          <span>Exercícios práticos</span>
+          <span>3 bônus</span>
         </div>
       </div>
 
@@ -922,44 +938,39 @@ ul{list-style:none}
 <section class="section problem" id="jornada">
   <div class="glow glow--gold" style="width:420px;height:420px;top:10%;left:-160px;opacity:.35"></div>
   <div class="wrap">
-    <div class="problem__grid">
 
-      <div class="problem__img reveal" data-anim="left">
-        <!-- IMAGEM: Pessoa em silêncio olhando o horizonte -->
-        <img class="parallax" data-speed="0.06" src="assets/problema.jpg" alt="Pessoa em silêncio, contemplando o horizonte ao entardecer" loading="lazy" width="800" height="1066">
-      </div>
-
-      <div class="reveal" data-anim="right" data-d="1">
-        <span class="eyebrow">Talvez você reconheça isso</span>
-        <h2 class="title">Você faz tudo certo,<br><span class="gold-text">mas ainda sente que falta algo.</span></h2>
-
-        <p class="lede" style="margin-top:20px">
-          Não é falta de esforço. Não é falta de fé. É a sensação silenciosa de estar caminhando
-          sem saber exatamente para onde. E quanto mais o tempo passa, mais pesada essa dúvida se torna.
-        </p>
-
-        <ul class="pain-list">
-          <li class="pain"><span class="pain__dot" aria-hidden="true">1</span><p>Você sente que falta algo na sua vida, mesmo quando tudo parece estar em ordem.</p></li>
-          <li class="pain"><span class="pain__dot" aria-hidden="true">2</span><p>Vive sem direção clara, tomando decisões pela pressa ou pela pressão dos outros.</p></li>
-          <li class="pain"><span class="pain__dot" aria-hidden="true">3</span><p>Está perdido profissionalmente e não sabe se o caminho atual é mesmo o seu lugar.</p></li>
-          <li class="pain"><span class="pain__dot" aria-hidden="true">4</span><p>Tem dúvidas sobre o chamado de Deus e teme estar deixando passar aquilo que Ele preparou.</p></li>
-          <li class="pain"><span class="pain__dot" aria-hidden="true">5</span><p>Deseja viver com mais significado, mas não sabe por onde começar essa busca.</p></li>
-        </ul>
-
-        <blockquote class="verse">
-          “Porque eu bem sei os planos que tenho a vosso respeito, planos de paz e não de mal,
-          para vos dar um futuro e uma esperança.”
-          <cite>Jeremias 29:11</cite>
-        </blockquote>
-
-        <p class="lede" style="margin-top:26px">
-          Existe um caminho. E ele não depende de sinais extraordinários nem de anos de espera.
-          Ele já está revelado na Palavra de Deus, e este material foi criado para conduzir você até lá,
-          passo a passo.
-        </p>
-      </div>
-
+    <div class="problem__head reveal">
+      <span class="eyebrow">Talvez você reconheça isso</span>
+      <h2 class="title">Você faz tudo certo,<br><span class="gold-text">mas ainda sente que falta algo.</span></h2>
+      <p class="lede" style="margin-top:20px">
+        Não é falta de esforço. Não é falta de fé. É a sensação silenciosa de estar caminhando
+        sem saber exatamente para onde. E quanto mais o tempo passa, mais pesada essa dúvida se torna.
+      </p>
     </div>
+
+    <ul class="pain-list">
+      <li class="pain reveal"><span class="pain__dot" aria-hidden="true">1</span><p>Você sente que falta algo na sua vida, mesmo quando tudo parece estar em ordem.</p></li>
+      <li class="pain reveal" data-d="1"><span class="pain__dot" aria-hidden="true">2</span><p>Vive sem direção clara, tomando decisões pela pressa ou pela pressão dos outros.</p></li>
+      <li class="pain reveal"><span class="pain__dot" aria-hidden="true">3</span><p>Está perdido profissionalmente e não sabe se o caminho atual é mesmo o seu lugar.</p></li>
+      <li class="pain reveal" data-d="1"><span class="pain__dot" aria-hidden="true">4</span><p>Tem dúvidas sobre o chamado de Deus e teme estar deixando passar aquilo que Ele preparou.</p></li>
+      <li class="pain reveal"><span class="pain__dot" aria-hidden="true">5</span><p>Deseja viver com mais significado, mas não sabe por onde começar essa busca.</p></li>
+      <li class="pain reveal" data-d="1"><span class="pain__dot" aria-hidden="true">6</span><p>Ora, busca, espera, e mesmo assim não consegue enxergar a direção com clareza.</p></li>
+    </ul>
+
+    <div class="problem__bottom">
+      <blockquote class="verse reveal" data-anim="left">
+        “Porque eu bem sei os planos que tenho a vosso respeito, planos de paz e não de mal,
+        para vos dar um futuro e uma esperança.”
+        <cite>Jeremias 29:11</cite>
+      </blockquote>
+
+      <p class="lede reveal" data-anim="right" data-d="1">
+        Existe um caminho. E ele não depende de sinais extraordinários nem de anos de espera.
+        Ele já está revelado na Palavra de Deus, e este material foi criado para conduzir você até lá,
+        passo a passo.
+      </p>
+    </div>
+
   </div>
 </section>
 
@@ -1030,30 +1041,24 @@ ul{list-style:none}
 <!-- ===================== PARA QUEM É ===================== -->
 <section class="section audience">
   <div class="wrap">
-    <div class="audience__grid">
+    <div class="reveal" style="max-width:760px">
+      <span class="eyebrow">Para quem é</span>
+      <h2 class="title">Este material foi escrito<br><span class="gold-text">para você que</span></h2>
+    </div>
 
-      <div class="reveal" data-anim="left">
-        <span class="eyebrow">Para quem é</span>
-        <h2 class="title">Este material foi escrito<br><span class="gold-text">para você que</span></h2>
+    <ul class="check-list">
+      <li class="check reveal"><span class="check__ico" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L20 7"/></svg></span><span>Está buscando propósito e quer respostas com fundamento, não frases prontas.</span></li>
+      <li class="check reveal" data-d="1"><span class="check__ico" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L20 7"/></svg></span><span>Quer crescer espiritualmente e aprofundar sua relação com Deus.</span></li>
+      <li class="check reveal"><span class="check__ico" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L20 7"/></svg></span><span>Está enfrentando um momento de dúvida, transição ou recomeço.</span></li>
+      <li class="check reveal" data-d="1"><span class="check__ico" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L20 7"/></svg></span><span>Deseja alinhar sua vida, suas escolhas e sua carreira à vontade de Deus.</span></li>
+      <li class="check reveal"><span class="check__ico" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L20 7"/></svg></span><span>Quer viver uma vida mais plena, com paz interior e direção clara.</span></li>
+      <li class="check reveal" data-d="1"><span class="check__ico" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L20 7"/></svg></span><span>Quer parar de adiar e finalmente dar o primeiro passo com direção.</span></li>
+    </ul>
 
-        <ul class="check-list">
-          <li class="check"><span class="check__ico" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L20 7"/></svg></span><span>Está buscando propósito e quer respostas com fundamento, não frases prontas.</span></li>
-          <li class="check"><span class="check__ico" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L20 7"/></svg></span><span>Quer crescer espiritualmente e aprofundar sua relação com Deus.</span></li>
-          <li class="check"><span class="check__ico" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L20 7"/></svg></span><span>Está enfrentando um momento de dúvida, transição ou recomeço.</span></li>
-          <li class="check"><span class="check__ico" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L20 7"/></svg></span><span>Deseja alinhar sua vida, suas escolhas e sua carreira à vontade de Deus.</span></li>
-          <li class="check"><span class="check__ico" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L20 7"/></svg></span><span>Quer viver uma vida mais plena, com paz interior e direção clara.</span></li>
-        </ul>
-
-        <a href="#comprar" class="btn btn--gold" style="margin-top:34px" data-cta="audiencia">
-          Quero dar o primeiro passo <span class="btn__arrow" aria-hidden="true">→</span>
-        </a>
-      </div>
-
-      <div class="audience__img reveal" data-anim="right" data-d="2">
-        <!-- IMAGEM: Pessoas caminhando em uma estrada ao amanhecer -->
-        <img class="parallax" data-speed="0.05" src="assets/paraquem.jpg" alt="Pessoas caminhando juntas por uma estrada ao amanhecer" loading="lazy" width="900" height="675">
-      </div>
-
+    <div class="reveal" style="margin-top:38px">
+      <a href="#comprar" class="btn btn--gold" data-cta="audiencia">
+        Quero dar o primeiro passo <span class="btn__arrow" aria-hidden="true">→</span>
+      </a>
     </div>
   </div>
 </section>
@@ -1091,10 +1096,10 @@ ul{list-style:none}
   <div class="wrap">
     <div class="deliver__grid">
 
-      <div class="mockup reveal" data-anim="zoom">
-        <!-- IMAGEM: Mockup do e-book -->
-        <img src="assets/curso-mockup.png" alt="Mockup do e-book Propósito exibido em tablet e em capa impressa" loading="lazy" width="900" height="900">
-      </div>
+      <!-- IMAGEM: capa.png -->
+      <figure class="mockup reveal" data-anim="zoom">
+        <img src="https://raw.githubusercontent.com/qincrivelmkt-droid/proposito/main/capa.png" alt="Capa do e-book Propósito: o que significa e como descobrir o seu à luz da Bíblia" loading="lazy">
+      </figure>
 
       <div class="reveal" data-d="1">
         <span class="eyebrow">O que você recebe</span>
@@ -1111,7 +1116,7 @@ ul{list-style:none}
           </div>
           <div class="deliver-item">
             <span class="deliver-item__ico" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h8l-1 8 10-12h-8z"/></svg></span>
-            <div><h4>Acesso imediato e vitalício</h4><p>Assim que a compra é confirmada, tudo é liberado. Estude no seu ritmo, quantas vezes quiser.</p></div>
+            <div><h4>Acesso imediato e vitalício</h4><p>Assim que a compra é confirmada, tudo é liberado. Leia no seu ritmo, quantas vezes quiser.</p></div>
           </div>
         </div>
 
@@ -1135,41 +1140,32 @@ ul{list-style:none}
       </p>
     </div>
 
-    <div class="cards">
+    <!-- IMAGEM: ebook-e-bonus.png -->
+    <figure class="bonus-featured reveal" data-anim="zoom">
+      <img src="https://raw.githubusercontent.com/qincrivelmkt-droid/proposito/main/ebook-e-bonus.png" alt="E-book Propósito ao lado dos três bônus inclusos" loading="lazy">
+      <figcaption>Tudo o que você recebe ao garantir o seu acesso</figcaption>
+    </figure>
+
+    <div class="cards cards--3">
       <article class="bonus-card reveal">
-        <div class="bonus-card__img">
-          <!-- IMAGEM: Capa do Diário de Oração -->
-          <img src="assets/bonus-1.png" alt="Capa do e-book Diário de Oração, 8 semanas de intimidade com Deus" loading="lazy" width="800" height="500">
-        </div>
-        <div class="bonus-card__body">
-          <span class="tag">Bônus 01</span>
-          <h3>Diário de Oração: 8 Semanas de Intimidade com Deus</h3>
-          <p>Um guia semanal com temas, versículos e espaços para registrar pedidos, respostas e gratidão.</p>
-        </div>
+        <div class="bonus-card__ico" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21c-2-3-4-4-4-7a4 4 0 0 1 8 0c0 3-2 4-4 7z"/><path d="M12 3v3"/></svg></div>
+        <span class="tag">Bônus 01</span>
+        <h3>Diário de Oração: 8 Semanas de Intimidade com Deus</h3>
+        <p>Um guia semanal com temas, versículos e espaços para registrar pedidos, respostas e gratidão.</p>
       </article>
 
       <article class="bonus-card reveal" data-d="1">
-        <div class="bonus-card__img">
-          <!-- IMAGEM: Capa dos 30 Dias de Devocionais -->
-          <img src="assets/bonus-2.png" alt="Capa do e-book 30 Dias de Devocionais sobre Propósito" loading="lazy" width="800" height="500">
-        </div>
-        <div class="bonus-card__body">
-          <span class="tag">Bônus 02</span>
-          <h3>30 Dias de Devocionais sobre Propósito</h3>
-          <p>Uma reflexão curta por dia, para manter o coração alinhado e transformar aprendizado em hábito.</p>
-        </div>
+        <div class="bonus-card__ico" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M8 2v4M16 2v4M3 10h18"/><path d="M9 15h6"/></svg></div>
+        <span class="tag">Bônus 02</span>
+        <h3>30 Dias de Devocionais sobre Propósito</h3>
+        <p>Uma reflexão curta por dia, para manter o coração alinhado e transformar aprendizado em hábito.</p>
       </article>
 
       <article class="bonus-card reveal" data-d="2">
-        <div class="bonus-card__img">
-          <!-- IMAGEM: Comunidade / grupo de WhatsApp -->
-          <img src="assets/bonus-3.png" alt="Ilustração do grupo exclusivo de WhatsApp da comunidade" loading="lazy" width="800" height="500">
-        </div>
-        <div class="bonus-card__body">
-          <span class="tag">Bônus 03</span>
-          <h3>Grupo exclusivo no WhatsApp</h3>
-          <p>Caminhe acompanhado. Um espaço de encorajamento, conteúdos extras e oração entre irmãos.</p>
-        </div>
+        <div class="bonus-card__ico" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 0 1-9 8.4 8.5 8.5 0 0 1-3.9-.9L3 20l1.1-4.9A8.4 8.4 0 0 1 3 11.5a8.5 8.5 0 0 1 18 0z"/></svg></div>
+        <span class="tag">Bônus 03</span>
+        <h3>Grupo exclusivo no WhatsApp</h3>
+        <p>Caminhe acompanhado. Um espaço de encorajamento, conteúdos extras e oração entre irmãos.</p>
       </article>
     </div>
   </div>
@@ -1220,11 +1216,6 @@ ul{list-style:none}
 <section class="section cta-final" id="comprar">
   <div class="wrap">
     <div class="cta-box reveal">
-      <div class="cta-box__bg">
-        <!-- IMAGEM: Montanhas ao nascer do sol / caminho -->
-        <img src="assets/cta-final.jpg" alt="Montanhas iluminadas pelo nascer do sol com um caminho ao centro" loading="lazy" width="1600" height="900">
-      </div>
-
       <div class="cta-box__content">
         <span class="eyebrow">O primeiro passo</span>
         <h2 class="title title--display" style="font-size:clamp(2rem,5.4vw,3.6rem)">
@@ -1304,7 +1295,7 @@ ul{list-style:none}
 <!-- ===================== STICKY CTA ===================== -->
 <div class="sticky-cta" id="stickyCta" role="complementary" aria-label="Chamada para ação fixa">
   <div class="sticky-cta__txt">
-    <strong>Propósito: e-book + curso digital</strong>
+    <strong>Propósito: e-book + bônus</strong>
     <span>De R$ 97,00 por R$ 47,00 · Garantia de 7 dias</span>
   </div>
   <a href="#comprar" class="btn btn--gold" data-cta="sticky">
@@ -1339,7 +1330,6 @@ function onScroll(){
     var total = document.documentElement.scrollHeight - window.innerHeight;
     progress.style.width = (total > 0 ? (y / total) * 100 : 0) + '%';
 
-    // Parallax leve nas imagens visíveis
     if (!reduzir) aplicarParallax();
 
     ticking = false;
@@ -1350,8 +1340,8 @@ window.addEventListener('resize', onScroll, {passive:true});
 onScroll();
 
 /* =====================================================================
-   Parallax suave (imagens com a classe .parallax)
-   Ajuste a intensidade pelo atributo data-speed de cada imagem.
+   Parallax suave (elementos com a classe .parallax)
+   Ajuste a intensidade pelo atributo data-speed.
    ===================================================================== */
 var camadas = document.querySelectorAll('.parallax');
 function aplicarParallax(){
@@ -1359,9 +1349,9 @@ function aplicarParallax(){
   camadas.forEach(function(el){
     var r = el.getBoundingClientRect();
     if (r.bottom < -200 || r.top > vh + 200) return;
-    var speed = parseFloat(el.getAttribute('data-speed')) || 0.05;
+    var speed = parseFloat(el.getAttribute('data-speed')) || 0.04;
     var centro = r.top + r.height / 2 - vh / 2;
-    el.style.transform = 'scale(1.10) translate3d(0,' + (-centro * speed).toFixed(2) + 'px,0)';
+    el.style.transform = 'translate3d(0,' + (-centro * speed).toFixed(2) + 'px,0)';
   });
 }
 
@@ -1420,8 +1410,8 @@ if (!reduzir && window.matchMedia('(hover:hover) and (pointer:fine)').matches){
       var y = (ev.clientY - r.top) / r.height;
       el.style.setProperty('--mx', (x * 100) + '%');
       el.style.setProperty('--my', (y * 100) + '%');
-      var rx = (0.5 - y) * 6;   // inclinação vertical
-      var ry = (x - 0.5) * 6;   // inclinação horizontal
+      var rx = (0.5 - y) * 6;
+      var ry = (x - 0.5) * 6;
       el.style.transform = 'perspective(900px) rotateX(' + rx.toFixed(2) + 'deg) rotateY(' + ry.toFixed(2) + 'deg) translateY(-6px)';
     });
     el.addEventListener('mouseleave', function(){ el.style.transform = ''; });
@@ -1489,7 +1479,6 @@ document.querySelectorAll('[data-cta]').forEach(function(btn){
 /* =====================================================================
    LINK DO CHECKOUT
    Troque a URL abaixo pelo seu link (Hotmart, Kiwify, Eduzz, etc.)
-   Todos os botões que apontam para o checkout serão atualizados.
    ===================================================================== */
 var CHECKOUT_URL = ''; // exemplo: 'https://pay.kiwify.com.br/SEU-LINK'
 if (CHECKOUT_URL){
