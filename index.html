@@ -20,18 +20,12 @@
 <!--
 =====================================================================
   ÍNDICE DE IMAGENS
-  Os caminhos apontam para os arquivos do repositório em URL absoluta,
-  assim as imagens aparecem tanto abrindo o arquivo direto no navegador
-  quanto publicado no GitHub Pages ou em qualquer hospedagem.
-
+  URLs absolutas do repositório, para funcionar em qualquer lugar.
   BASE: https://raw.githubusercontent.com/qincrivelmkt-droid/proposito/main/
 
-  hook.png           -> Hero, logo no começo da página
+  hook.png           -> Hero, no começo da página
   capa.png           -> Seção "O que você recebe" (e imagem social)
   ebook-e-bonus.png  -> Seção "Bônus", destaque do pacote completo
-
-  Para trocar por outra imagem, suba o arquivo no repositório e mude
-  apenas o nome no final da URL. Qualquer proporção se ajusta sem cortar.
 =====================================================================
 -->
 
@@ -74,7 +68,6 @@ fbq('init','SEU_PIXEL_ID');fbq('track','PageView');</script>
    1. DESIGN TOKENS
    ===================================================================== */
 :root{
-  /* Paleta grafite da referência: preto profundo + prata */
   --bg:#0D1013;
   --bg-2:#101418;
   --surface:#171B1F;
@@ -172,7 +165,6 @@ ul{list-style:none}
 
 .divider{height:1px;background:var(--line);border:0}
 
-/* Glow decorativo */
 .glow{
   position:absolute;border-radius:50%;filter:blur(120px);pointer-events:none;z-index:0;
   opacity:.5;
@@ -252,36 +244,31 @@ ul{list-style:none}
   display:grid;gap:clamp(32px,5vw,56px);align-items:center;
   grid-template-columns:1fr;
 }
-/* A coluna da imagem recebe mais espaço para o hook aparecer maior */
 @media(min-width:980px){
-  .hero__grid{grid-template-columns:1fr 1.14fr;gap:clamp(28px,3.6vw,48px)}
+  .hero__grid{grid-template-columns:1fr .95fr;gap:clamp(28px,3.4vw,46px);align-items:center}
 }
 
-.hero__title{margin:6px 0 26px}
-/* Tamanho limitado para a palavra nunca ultrapassar a coluna */
+/* Bloco título + subtítulo: mesma largura, alinhados de ponta a ponta.
+   O tamanho exato é calculado por script para preencher a coluna. */
+.hero__title{margin:6px 0 26px;width:100%}
 .hero__title .line{
   display:block;
-  font-size:clamp(2.6rem,13.5vw,5.2rem);
-  line-height:.9;
+  white-space:nowrap;
+  line-height:.88;
+  font-size:clamp(2.6rem,13.5vw,5.4rem);
 }
-@media(min-width:980px){
-  .hero__title .line{font-size:clamp(3.2rem,5.4vw,4.9rem)}
-}
-
-/* Subtítulo com mais presença, acompanhando o peso do título */
 .hero__title-sub{
-  display:block;margin-top:18px;
+  display:block;margin-top:12px;width:100%;
   font-family:var(--font-display);
   font-weight:600;
-  text-transform:none;
-  letter-spacing:-.012em;
-  line-height:1.22;
-  font-size:clamp(1.45rem,5.4vw,2.2rem);
+  text-transform:uppercase;
+  letter-spacing:.004em;
+  line-height:1.16;
+  font-size:clamp(1.1rem,5.1vw,2rem);
   color:var(--text);
-  max-width:20ch;
-}
-@media(min-width:980px){
-  .hero__title-sub{font-size:clamp(1.6rem,2.5vw,2.2rem)}
+  text-align:justify;
+  text-align-last:left;
+  max-width:none;
 }
 
 .hero__sub{margin-bottom:34px}
@@ -294,13 +281,8 @@ ul{list-style:none}
 .hero__trust span{display:inline-flex;align-items:center;gap:8px}
 .hero__trust svg{color:var(--gold)}
 
-/* Imagem de abertura (hook.png).
-   Sem recorte: a moldura acompanha a proporção original do arquivo. */
+/* Imagem de abertura (hook.png), na proporção original do arquivo */
 .hero__media{position:relative}
-@media(min-width:980px){
-  /* Deixa a imagem ultrapassar levemente a coluna, ganhando presença */
-  .hero__media{margin-right:calc(var(--pad) * -0.6)}
-}
 .hero__img-wrap{
   position:relative;border-radius:var(--radius-lg);overflow:hidden;
   border:1px solid var(--line);box-shadow:var(--shadow-lg);
@@ -482,7 +464,6 @@ ul{list-style:none}
 .deliver-item h4{font-size:.98rem;font-weight:700}
 .deliver-item p{font-size:.85rem;color:var(--muted)}
 
-/* Imagem do pacote completo na seção de bônus */
 .bonus-featured{
   border:1px solid var(--line);border-radius:var(--radius-lg);
   background:
@@ -589,9 +570,7 @@ ul{list-style:none}
 .cta-box__content{position:relative;z-index:2;padding:clamp(32px,6vw,72px);max-width:760px}
 .cta-box .title{margin-bottom:20px}
 
-.price{
-  display:flex;flex-wrap:wrap;align-items:baseline;gap:14px;margin:26px 0 8px;
-}
+.price{display:flex;flex-wrap:wrap;align-items:baseline;gap:14px;margin:26px 0 8px}
 .price__old{color:var(--muted);text-decoration:line-through;font-size:1rem}
 .price__now{font-family:var(--font-display);font-weight:900;font-size:clamp(2rem,5vw,2.9rem);letter-spacing:-.04em}
 .price__note{font-size:.85rem;color:var(--muted)}
@@ -848,7 +827,7 @@ ul{list-style:none}
       <div class="hero__copy reveal" data-anim="left">
         <span class="eyebrow">E-book + Bônus</span>
 
-        <h1 class="title title--display hero__title">
+        <h1 class="title title--display hero__title" id="heroTitulo">
           <span class="line muted-display">Propósito</span>
           <span class="hero__title-sub">O que significa e como descobrir o seu à Luz da Bíblia</span>
         </h1>
@@ -1300,6 +1279,44 @@ ul{list-style:none}
 
 <script>
 document.getElementById('ano').textContent = new Date().getFullYear();
+
+/* =====================================================================
+   TÍTULO E SUBTÍTULO ALINHADOS NA MESMA LARGURA
+   A palavra PROPÓSITO é dimensionada para preencher exatamente a coluna
+   e o subtítulo acompanha essa mesma medida, de ponta a ponta.
+
+   Para deixar o subtítulo maior ou menor, mude apenas o valor de
+   PROPORCAO_SUBTITULO abaixo (0.42 = 42% do tamanho do título).
+   ===================================================================== */
+var PROPORCAO_SUBTITULO = 0.42;
+
+function ajustarTitulo(){
+  var bloco = document.getElementById('heroTitulo');
+  if (!bloco) return;
+  var linha = bloco.querySelector('.line');
+  var sub   = bloco.querySelector('.hero__title-sub');
+  var largura = bloco.clientWidth;
+  if (!linha || !largura) return;
+
+  // Mede a palavra em um tamanho de referência e calcula o tamanho exato
+  linha.style.fontSize = '100px';
+  var larguraTexto = linha.scrollWidth;
+  if (!larguraTexto) return;
+  var tamanho = (100 * largura / larguraTexto);
+  linha.style.fontSize = tamanho.toFixed(2) + 'px';
+
+  if (sub){
+    var tamanhoSub = Math.max(15, tamanho * PROPORCAO_SUBTITULO);
+    sub.style.fontSize = tamanhoSub.toFixed(2) + 'px';
+  }
+}
+
+if (document.fonts && document.fonts.ready){
+  document.fonts.ready.then(ajustarTitulo);
+}
+window.addEventListener('load', ajustarTitulo);
+window.addEventListener('resize', ajustarTitulo);
+ajustarTitulo();
 
 /* =====================================================================
    Header, barra de progresso e CTA fixo
