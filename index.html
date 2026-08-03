@@ -25,7 +25,7 @@
 
   hook.png           -> Hero, no começo da página
   capa.png           -> Seção "O que você recebe" (e imagem social)
-  ebook-e-bonus.png  -> Seção "Bônus", destaque do pacote completo
+  banus-nova-imagem.png -> Seção "Bônus", destaque do pacote completo
 =====================================================================
 -->
 
@@ -245,7 +245,7 @@ ul{list-style:none}
   grid-template-columns:1fr;
 }
 @media(min-width:980px){
-  .hero__grid{grid-template-columns:1fr .95fr;gap:clamp(28px,3.4vw,46px);align-items:center}
+  .hero__grid{grid-template-columns:1fr 1.35fr;gap:clamp(24px,3vw,40px);align-items:center}
 }
 
 /* Bloco título + subtítulo: mesma largura, alinhados de ponta a ponta.
@@ -283,6 +283,12 @@ ul{list-style:none}
 
 /* Imagem de abertura (hook.png), na proporção original do arquivo */
 .hero__media{position:relative}
+/* No computador a imagem avança até a borda direita da tela, ganhando escala */
+@media(min-width:980px){
+  .hero__media{
+    margin-right:calc((100vw - min(100vw, var(--maxw))) / -2 - var(--pad));
+  }
+}
 .hero__img-wrap{
   position:relative;border-radius:var(--radius-lg);overflow:hidden;
   border:1px solid var(--line);box-shadow:var(--shadow-lg);
@@ -1114,9 +1120,9 @@ ul{list-style:none}
       </p>
     </div>
 
-    <!-- IMAGEM: ebook-e-bonus.png -->
+    <!-- IMAGEM: banus-nova-imagem.png -->
     <figure class="bonus-featured reveal" data-anim="zoom">
-      <img src="https://raw.githubusercontent.com/qincrivelmkt-droid/proposito/main/ebook-e-bonus.png" alt="E-book Propósito ao lado dos três bônus inclusos" loading="lazy">
+      <img src="https://raw.githubusercontent.com/qincrivelmkt-droid/proposito/main/banus-nova-imagem.png" alt="E-book Propósito ao lado dos três bônus inclusos" loading="lazy">
       <figcaption>Tudo o que você recebe ao garantir o seu acesso</figcaption>
     </figure>
 
