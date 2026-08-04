@@ -1457,7 +1457,9 @@ if (!reduzir && window.matchMedia('(hover:hover) and (pointer:fine)').matches){
    ===================================================================== */
 document.querySelectorAll('a[href^="#"]:not([href="#"])').forEach(function(link){
   link.addEventListener('click', function(e){
-    var alvo = document.querySelector(link.getAttribute('href'));
+    var destino = link.getAttribute('href');
+    if (!destino || destino.charAt(0) !== '#') return; // link externo segue normalmente
+    var alvo = document.querySelector(destino);
     if (!alvo) return;
     e.preventDefault();
     var topo = alvo.getBoundingClientRect().top + window.scrollY - 84;
@@ -1492,11 +1494,16 @@ document.querySelectorAll('[data-cta]').forEach(function(btn){
 
 /* =====================================================================
    LINK DO CHECKOUT
-   Troque a URL abaixo pelo seu link (Hotmart, Kiwify, Eduzz, etc.)
+   Basta trocar a URL abaixo para atualizar TODOS os botões da página
+   de uma vez (topo, hero, para quem é, entrega, CTA final e barra fixa).
    ===================================================================== */
-var CHECKOUT_URL = ''; // exemplo: 'https://pay.kiwify.com.br/SEU-LINK'
+var CHECKOUT_URL = 'https://pay.kiwify.com.br/xEXg77c';
+
 if (CHECKOUT_URL){
-  document.getElementById('checkout-final').setAttribute('href', CHECKOUT_URL);
+  document.querySelectorAll('[data-cta], #checkout-final').forEach(function(botao){
+    botao.setAttribute('href', CHECKOUT_URL);
+    botao.setAttribute('rel', 'noopener');
+  });
 }
 </script>
 
