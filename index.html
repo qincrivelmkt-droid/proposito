@@ -37,14 +37,27 @@ j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefo
 (window,document,'script','dataLayer','GTM-XXXXXXX');</script>
 -->
 
-<!-- ============ META PIXEL (cole seu ID) ============ -->
-<!--
-<script>!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+<!-- ============ META PIXEL ============ -->
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
 n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;
 n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];
 s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
-fbq('init','SEU_PIXEL_ID');fbq('track','PageView');</script>
--->
+
+fbq('init','491137683147463');
+fbq('track','PageView');
+fbq('track','ViewContent',{
+  content_name:'Proposito: O Que Significa e Como Descobrir o Seu a Luz da Biblia',
+  content_type:'product',
+  content_ids:['ebook-proposito'],
+  value:27.00,
+  currency:'BRL'
+});
+</script>
+<noscript>
+<img height="1" width="1" style="display:none"
+     src="https://www.facebook.com/tr?id=491137683147463&ev=PageView&noscript=1" alt="">
+</noscript>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -1484,11 +1497,23 @@ perguntas.forEach(function(d){
 document.querySelectorAll('[data-cta]').forEach(function(btn){
   btn.addEventListener('click', function(){
     var origem = btn.getAttribute('data-cta');
+
+    // Meta Pixel: registra a intenção de compra e de qual botão ela veio
+    if (window.fbq){
+      fbq('track','InitiateCheckout',{
+        content_name:'Proposito',
+        content_ids:['ebook-proposito'],
+        content_type:'product',
+        value:27.00,
+        currency:'BRL',
+        origem:origem
+      });
+    }
+
+    // Google Analytics / GTM (ative quando instalar)
     // window.dataLayer = window.dataLayer || [];
     // window.dataLayer.push({event:'cta_click', cta_origem: origem});
-    // if (window.fbq) fbq('track','InitiateCheckout',{content_name:'Proposito', origem:origem});
     // if (window.gtag) gtag('event','begin_checkout',{origem:origem});
-    console.log('CTA clicado:', origem);
   });
 });
 
